@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "535084049450",
+    "project_id": "calendario-school",
+    "storage_bucket": "calendario-school.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:535084049450:android:3049c54608e4023f2e0f53",
+        "android_client_info": {
+          "package_name": "com.example.calendario_escolar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "535084049450-6qlqp44hb79o3nvka9i8vuvc99b0c3o8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmGXALuFQCvrHN5t0z4spz-eUn7H8W-Yc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "535084049450-6qlqp44hb79o3nvka9i8vuvc99b0c3o8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
