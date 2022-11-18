@@ -68,6 +68,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // variable para controlar al usario con sesión iniciada
     final user = Provider.of<UserModel>(context, listen: false);
     return Scaffold(
       // barra superior de la aplicación

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:calendario_escolar/pages/home_page.dart';
 import 'package:calendario_escolar/pages/sign_in_page.dart';
 import 'package:calendario_escolar/services/auth.dart';
 import 'package:provider/provider.dart';
+import 'navigation.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -25,8 +25,8 @@ class _LandingPageState extends State<LandingPage> {
           if (user == null) {
             return SignInPage();
           }
-          // si el usuario existe, se 
-          return Provider<UserModel>.value(value: user, child: HomePage());
+          // si el usuario existe, se manda al home
+          return Provider<UserModel>.value(value: user, child: Navigation());
         } else {
           // mientras está cargando muestra la barra de carga
           return const Scaffold(
