@@ -4,8 +4,14 @@ import './pages/landing_page.dart';
 import './services/auth.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
+import 'package:flutter/services.dart';
 
 void main() async {
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.dark),
+  );
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -20,11 +26,12 @@ class MyApp extends StatelessWidget {
     final ThemeData base = ThemeData.dark();
     return base.copyWith(
         brightness: Brightness.dark,
-        primaryColor: Colors.deepOrange,
+        primaryColor: Color.fromARGB(255, 34, 255, 34),
         textTheme: const TextTheme(
           headline1: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
           bodyText1: TextStyle(fontSize: 18.0),
-        ));
+        ),
+    );
   }
 
   @override

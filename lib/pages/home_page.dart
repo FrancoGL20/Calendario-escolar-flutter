@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:calendario_escolar/common_widgets/custom_alert_dialog.dart';
 import 'package:calendario_escolar/services/auth.dart';
 import 'package:provider/provider.dart';
+import '../common_widgets/colors.dart';
+import 'homeworks/homework.dart';
+import 'homeworks/homework_list.dart';
+import '../services/operations.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
-  // realización de cerrar la sesión
+  // acción de cerrar la sesión
   Future<void> _signOut(context) async {
     final auth = Provider.of<AuthBase>(context, listen: false);
     try {
@@ -66,6 +70,22 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  Widget _buildListOfHomeworks(UserModel user, BuildContext context) {
+    Future<List<Homework>> homeworks=fetchHomework();
+    Key k = Key("");
+    return Center(
+      child: FutureBuilder<List<Homework>>(
+        future: homeworks,
+        builder: (context, snapshot) {
+          if (snapshot.hasError) print(snapshot.error);
+          return snapshot.hasData
+              ? HomeworkList(items: snapshot.data!, key: k)
+              : const Center(child: CircularProgressIndicator());
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     // variable para controlar al usario con sesión iniciada
@@ -74,25 +94,25 @@ class HomePage extends StatelessWidget {
       // barra superior de la aplicación
       appBar: AppBar(
         // titulo en la barra superior
-        title: const Text(
-          "Página de inicio",
-          style: TextStyle(color: Colors.black),
+        title: Text(
+          "Lista de tareas",
+          style: TextStyle(color: ColorsF().escoger("blanco")),
         ),
         // fondo de la barra
-        backgroundColor: Color.fromARGB(255, 218, 38, 38),
+        backgroundColor: ColorsF().escoger("negro"),
         // acción de cerrar sesión
         actions: [
           TextButton(
               // cuando se presione, se va a cerrar sesión
               onPressed: () => _confirmSignOut(context),
-
-              child: const Text(
-                "Cerrar sesión",
-                style: TextStyle(color: Colors.black, fontSize: 18),
-              ))
+              child: Text(
+                "Cerrar sesión  ",
+                style: TextStyle(color: ColorsF().escoger("blanco"), fontSize: 18,),
+              )
+          )
         ],
       ),
-      body: _buildHomePageContent(user, context),
+      body: _buildListOfHomeworks(user, context),
     );
   }
 }

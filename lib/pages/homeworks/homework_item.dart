@@ -7,16 +7,19 @@ class HomeworkItem extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.all(2),
+        margin: const EdgeInsets.only(left: 10.0,right: 10.0,top: 7.0),
         height: 140,
         child: Card(
           elevation: 5,
           child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Image.network(
-                  item.classImage,
-                  width: 200,
+                Container(
+                  margin: const EdgeInsets.only(top: 12.0, bottom: 12.0,left: 35.0),
+                  child: Image.network(
+                    item.classImage,
+                    width: 100,
+                  ),
                 ),
                 Expanded(
                     child: Container(
@@ -25,15 +28,16 @@ class HomeworkItem extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
                             Text(item.name,
-                                style: const TextStyle(fontWeight: FontWeight.bold)),
-                            Text("horario: ${item.schedule}"),
-                            Text("salón: ${item.classroom}"),
-                            Text("dias:${item.days}"),
+                                style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0)),
+                            Text("horario: ${item.schedule}",style: const TextStyle(fontSize: 13.0)),
+                            Text("salón: ${item.classroom}",style: const TextStyle(fontSize: 13.0)),
+                            Text("días: ${item.days}",style: const TextStyle(fontSize: 13.0)),
                           ],
                         )
                     )
                 )
-              ]),
+              ]
+          ),
         )
     );
   }

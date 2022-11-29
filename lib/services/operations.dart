@@ -20,7 +20,7 @@ Future<List<Homework>> fetchHomework() async {
 List<Homework> decodeHomework(String responseBody) {
   // interpretar cadena como texto y castear el jason a map de String y dynamic
   final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
-  print(parsed);
+  print("$parsed");
   // devolver un objeto Homework creado y funcionando con las caracteristicas del map
   return parsed.map<Homework>((json) => Homework.fromMap(json)).toList();
 }

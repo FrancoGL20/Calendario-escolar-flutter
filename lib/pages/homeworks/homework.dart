@@ -13,9 +13,9 @@ class Homework {
     this.days,
   );
   factory Homework.fromMap(Map<String, dynamic> json) {
-    return Homework(json['classImage'],json['name'], json['schedule'], json['classroom'], json['days']);
+    return Homework(json['class_image'],json['name'], json['schedule'], json['classroom'], json['days']);
   }
   factory Homework.fromJson(Map<String, dynamic> json) {
-    return Homework(json['classImage'],json['name'], json['schedule'], json['classroom'], json['days']);
+    return Homework(json['class_image'],json['name'], json['schedule'], json['classroom'], json['days']);
   }
 }

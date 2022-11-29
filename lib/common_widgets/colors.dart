@@ -8,9 +8,9 @@ class ColorsF {
           return Color.fromARGB(255, 19, 19, 19);
         }
 
-      case "azul":
+      case "naranja":
         {
-          return Color.fromARGB(255, 0, 42, 255);
+          return Color.fromARGB(255, 255, 128, 3);
         }
 
       case "blanco":

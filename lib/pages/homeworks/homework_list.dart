@@ -10,17 +10,19 @@ class HomeworkList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // lista deslizable de elementos tipo tarea a visualizar
-    return ListView.builder(
-      // recomendado: es una forma de indicar al ListView
-      // la cantidad de elementos que va a contener y cargar
-      itemCount: items.length,
-      // regresa por cada unos de los elementos de la lista 
-      // un Widget que se va a mostrar
-      itemBuilder: (context, index) {
-        // widget con la forma visible de cada uno de los 
-        // elementos a mostrar dentro de la lista
-        return HomeworkItem(item: items[index]);
-      },
-    );
+    return Container(
+        margin: const EdgeInsets.only(top: 8.0),
+        child: ListView.builder(
+          // recomendado: es una forma de indicar al ListView
+          // la cantidad de elementos que va a contener y cargar
+          itemCount: items.length,
+          // regresa por cada unos de los elementos de la lista
+          // un Widget que se va a mostrar
+          itemBuilder: (context, index) {
+            // widget con la forma visible de cada uno de los
+            // elementos a mostrar dentro de la lista
+            return HomeworkItem(item: items[index]);
+          },
+        ));
   }
 }
