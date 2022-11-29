@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
     }
   }
 
-  // aviso flotante de pregunta de inicio de sesión
+  // dialogo de alerta de pregunta de inicio de sesión
   Future<void> _confirmSignOut(BuildContext context) async {
     final _didRequestSignOut = await CustomAlertDialog(
       title: "Cerrar sesión",

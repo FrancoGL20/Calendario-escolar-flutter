@@ -32,7 +32,8 @@ class MyApp extends StatelessWidget {
     return Provider<AuthBase>(
       create: (context) => Auth(),
       child: MaterialApp(
-        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        title: 'Calendario escolar',
         theme: _buildAppTheme(),
         home: LandingPage(),
       ),
