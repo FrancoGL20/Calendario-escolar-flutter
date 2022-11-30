@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:async';
-import '../pages/homeworks/homework.dart';
+import '../pages/classes/class.dart';
 import 'package:http/http.dart' as http;
 
 Future<List<Homework>> fetchHomework() async {

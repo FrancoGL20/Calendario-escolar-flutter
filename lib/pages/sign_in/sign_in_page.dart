@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:calendario_escolar/pages/sign_in/email_sign_in_form.dart';
 
-import '../common_widgets/colors.dart';
+import '../../common_widgets/colors.dart';
 
 class SignInPage extends StatelessWidget {
   @override

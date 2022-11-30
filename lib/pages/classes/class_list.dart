@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'homework.dart';
-import 'homework_item.dart';
+import 'class.dart';
+import 'class_item.dart';
 
 class HomeworkList extends StatelessWidget {
   final List<Homework> items;
@@ -11,7 +11,7 @@ class HomeworkList extends StatelessWidget {
   Widget build(BuildContext context) {
     // lista deslizable de elementos tipo tarea a visualizar
     return Container(
-        margin: const EdgeInsets.only(top: 8.0),
+        margin: const EdgeInsets.only(top: 12.0),
         child: ListView.builder(
           // recomendado: es una forma de indicar al ListView
           // la cantidad de elementos que va a contener y cargar

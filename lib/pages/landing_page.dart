@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:calendario_escolar/pages/sign_in_page.dart';
+import 'package:calendario_escolar/pages/sign_in/sign_in_page.dart';
 import 'package:calendario_escolar/services/auth.dart';
 import 'package:provider/provider.dart';
 import 'navigation.dart';

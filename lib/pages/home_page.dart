@@ -1,74 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:calendario_escolar/common_widgets/custom_alert_dialog.dart';
 import 'package:calendario_escolar/services/auth.dart';
 import 'package:provider/provider.dart';
-import '../common_widgets/colors.dart';
-import 'homeworks/homework.dart';
-import 'homeworks/homework_list.dart';
+import 'classes/class.dart';
+import 'classes/class_list.dart';
 import '../services/operations.dart';
+import '../pages/app_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
-
-  // acción de cerrar la sesión
-  Future<void> _signOut(context) async {
-    final auth = Provider.of<AuthBase>(context, listen: false);
-    try {
-      auth.signOut();
-    } catch (e) {
-      // ignore: avoid_print
-      print(e.toString());
-    }
-  }
-
-  // dialogo de alerta de pregunta de inicio de sesión
-  Future<void> _confirmSignOut(BuildContext context) async {
-    final _didRequestSignOut = await CustomAlertDialog(
-      title: "Cerrar sesión",
-      content: "¿Estás seguro de querer cerrar sesión?",
-      defaultActionText: "Salir",
-      cancelActionText: "Cancelar",
-    ).show(context);
-
-    if (_didRequestSignOut == true) {
-      _signOut(context);
-    }
-  }
-
-  Widget _buildHomePageContent(UserModel user, BuildContext context) {
-    return Container(
-      child: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              CircleAvatar(
-                radius: 50.0,
-                backgroundColor: Color.fromARGB(255, 218, 38, 38),
-                child: Text(
-                  user.email.split("")[0].toUpperCase(),
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline1!
-                      .copyWith(color: Colors.black),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                user.uid,
-                style: TextStyle(color: Colors.white),
-              ),
-              Text(
-                user.email,
-                style: TextStyle(color: Colors.white),
-              )
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 
   Widget _buildListOfHomeworks(UserModel user, BuildContext context) {
     Future<List<Homework>> homeworks=fetchHomework();
@@ -92,26 +31,7 @@ class HomePage extends StatelessWidget {
     final user = Provider.of<UserModel>(context, listen: false);
     return Scaffold(
       // barra superior de la aplicación
-      appBar: AppBar(
-        // titulo en la barra superior
-        title: Text(
-          "Lista de tareas",
-          style: TextStyle(color: ColorsF().escoger("blanco")),
-        ),
-        // fondo de la barra
-        backgroundColor: ColorsF().escoger("negro"),
-        // acción de cerrar sesión
-        actions: [
-          TextButton(
-              // cuando se presione, se va a cerrar sesión
-              onPressed: () => _confirmSignOut(context),
-              child: Text(
-                "Cerrar sesión  ",
-                style: TextStyle(color: ColorsF().escoger("blanco"), fontSize: 18,),
-              )
-          )
-        ],
-      ),
+      appBar: AppBarF.crearAppBar(context),
       body: _buildListOfHomeworks(user, context),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'homework.dart';
+import 'class.dart';
 
 class HomeworkItem extends StatelessWidget {
   final Homework item;
@@ -7,7 +7,7 @@ class HomeworkItem extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.only(left: 10.0,right: 10.0,top: 7.0),
+        margin: const EdgeInsets.only(left: 10.0,right: 10.0,bottom: 8.0),
         height: 140,
         child: Card(
           elevation: 5,

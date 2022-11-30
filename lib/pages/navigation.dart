@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home_page.dart';
-import 'homeworks/homework_create.dart';
+import 'classes/class_create.dart';
 import './other_pages/contact.dart';
 import '../common_widgets/colors.dart';
 
@@ -21,7 +21,7 @@ class _Navigation extends State<Navigation> {
     // pantalla de home
     HomePage(),
     // pantalla de busqueda
-    CreateHw(),
+    CreateCl(),
     // pantalla de perfil
     Contact()
   ];
