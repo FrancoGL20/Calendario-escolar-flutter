@@ -1,21 +1,30 @@
-class Homework {
-  final String classImage;
-  final String name;
-  final String schedule;
-  final String classroom;
-  final String days;
+class Class {
+  String classImage;
+  String name;
+  String schedule;
+  String classroom;
+  String days;
 
-  Homework(
+  Class(
     this.classImage,
     this.name,
     this.schedule,
     this.classroom,
     this.days,
   );
-  factory Homework.fromMap(Map<String, dynamic> json) {
-    return Homework(json['class_image'],json['name'], json['schedule'], json['classroom'], json['days']);
+  factory Class.fromMap(Map<String, dynamic> json) {
+    return Class(json['class_image'], json['name'], json['schedule'],
+        json['classroom'], json['days']);
   }
-  factory Homework.fromJson(Map<String, dynamic> json) {
-    return Homework(json['class_image'],json['name'], json['schedule'], json['classroom'], json['days']);
+  factory Class.fromJson(Map<String, dynamic> json) {
+    return Class(
+        json['data']['rows'][0]['class_image'],
+        json['data']['rows'][0]['name'],
+        json['data']['rows'][0]['schedule'],
+        json['data']['rows'][0]['classroom'],
+        json['data']['rows'][0]['days']);
+  }
+  String printObject() {
+    return "classImage= $classImage, name= $name, schedule= $schedule, classroom= $classroom, days= $days";
   }
 }

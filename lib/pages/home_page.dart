@@ -10,17 +10,20 @@ import '../pages/app_bar.dart';
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
-  Widget _buildListOfHomeworks(UserModel user, BuildContext context) {
-    Future<List<Homework>> homeworks=fetchHomework();
+  Widget _buildListOfClasss(UserModel user, BuildContext context) {
+    Future<List<Class>> Classs = fetchClass();
     Key k = Key("");
     return Center(
-      child: FutureBuilder<List<Homework>>(
-        future: homeworks,
+      child: FutureBuilder<List<Class>>(
+        future: Classs,
         builder: (context, snapshot) {
           if (snapshot.hasError) print(snapshot.error);
           return snapshot.hasData
-              ? HomeworkList(items: snapshot.data!, key: k)
-              : Center(child: CircularProgressIndicator(color: ColorsF().escoger("primario"),));
+              ? ClassList(items: snapshot.data!, key: k)
+              : Center(
+                  child: CircularProgressIndicator(
+                  color: ColorsF().escoger("primario"),
+                ));
         },
       ),
     );
@@ -32,8 +35,8 @@ class HomePage extends StatelessWidget {
     final user = Provider.of<UserModel>(context, listen: false);
     return Scaffold(
       // barra superior de la aplicación
-      appBar: AppBarF.crearAppBar(context,"Lista de materias"),
-      body: _buildListOfHomeworks(user, context),
+      appBar: AppBarF.crearAppBar(context, "Lista de materias"),
+      body: _buildListOfClasss(user, context),
     );
   }
 }

@@ -1,6 +1,9 @@
 import 'package:calendario_escolar/common_widgets/colors.dart';
+import 'package:calendario_escolar/services/operations.dart';
 import 'package:flutter/material.dart';
 import '../app_bar.dart';
+import 'class.dart';
+import '../../common_widgets/decoration_of_text_form_field.dart';
 
 class CreateCl extends StatefulWidget {
   const CreateCl({super.key});
@@ -10,33 +13,14 @@ class CreateCl extends StatefulWidget {
 }
 
 class _CreateClState extends State<CreateCl> {
+  Class classToUpload = Class("", "", "", "", "");
   final _formKey = GlobalKey<FormState>();
-  final decorationForTextFields = InputDecoration(
-      labelText: "Nombre",
-      hintText: "Clase X",
-      icon: Icon(Icons.drive_file_rename_outline,color: ColorsF().escoger("gris")),
 
-      hintStyle: TextStyle(
-        color: ColorsF().escoger("gris")
-      ),
-      enabledBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: Color.fromARGB(255, 119, 255, 123),width: 1.0),
-        borderRadius: BorderRadius.circular(10.0)
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: Color.fromARGB(255, 175, 160, 76),width: 1.0),
-        borderRadius: BorderRadius.circular(10.0)
-      ),
-      errorBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: Color.fromARGB(255, 254, 0, 0),width: 1.0),
-        borderRadius: BorderRadius.circular(10.0)
-      ),
-      focusedErrorBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: Color.fromARGB(255, 217, 0, 255),width: 1.0),
-        borderRadius: BorderRadius.circular(10.0)
-      ),
-
-  );
+  TextEditingController classImageController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController scheduleController = TextEditingController();
+  TextEditingController classroomController = TextEditingController();
+  TextEditingController daysController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -58,93 +42,90 @@ class _CreateClState extends State<CreateCl> {
                     style: TextStyle(fontSize: 40.0, fontFamily: 'Lato'),
                   ),
                   const SizedBox(
-                    height: 28,
+                    height: 31,
                   ),
                   TextFormField(
-                    decoration: decorationForTextFields,
-                    validator: ((value) {
-                      if (value!.isEmpty) {
-                        return 'Ingresar nombre';
-                      }
-                      return null;
-                    }),
-                  ),
+                      controller: nameController,
+                      decoration: decorationForTextFormFields.copyWith(
+                        labelText: "Nombre",
+                        hintText: "Clase X",
+                        icon: Icon(Icons.drive_file_rename_outline,
+                            color: ColorsF().escoger("gris")),
+                      ),
+                      validator: ((value) {
+                        if (value!.isEmpty) {
+                          return '* Ingresar nombre';
+                        }
+                        return null;
+                      })),
                   const SizedBox(
                     height: 35,
                   ),
                   TextFormField(
-                    decoration: const InputDecoration(
-                      labelText: "Horario",
-                      hintText: "Inicio - Fin",
-                      border: OutlineInputBorder(
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(10.0))),
-                      icon: Icon(Icons.schedule),
-                    ),
-                    validator: ((value) {
-                      if (value!.isEmpty) {
-                        return 'Ingresar horario';
-                      }
-                      return null;
-                    }),
-                  ),
+                      controller: scheduleController,
+                      decoration: decorationForTextFormFields.copyWith(
+                        labelText: "Horario",
+                        hintText: "Inicio - Fin",
+                        icon: Icon(Icons.schedule,
+                            color: ColorsF().escoger("gris")),
+                      ),
+                      validator: ((value) {
+                        if (value!.isEmpty) {
+                          return '* Ingresar horario';
+                        }
+                        return null;
+                      })),
                   const SizedBox(
                     height: 35,
                   ),
                   TextFormField(
-                    decoration: const InputDecoration(
-                      labelText: "Salón",
-                      hintText: "Edificio-Salon",
-                      border: OutlineInputBorder(
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(10.0))),
-                      icon: Icon(Icons.location_on),
-                    ),
-                    validator: ((value) {
-                      if (value!.isEmpty) {
-                        return 'Ingresar nombre de salón';
-                      }
-                      return null;
-                    }),
-                  ),
+                      controller: classroomController,
+                      decoration: decorationForTextFormFields.copyWith(
+                        labelText: "Salón",
+                        hintText: "Edificio-Salon",
+                        icon: Icon(Icons.location_on,
+                            color: ColorsF().escoger("gris")),
+                      ),
+                      validator: ((value) {
+                        if (value!.isEmpty) {
+                          return '* Ingresar nombre de salón';
+                        }
+                        return null;
+                      })),
                   const SizedBox(
                     height: 35,
                   ),
                   TextFormField(
-                    decoration: const InputDecoration(
-                      labelText: "Días de clase",
-                      hintText: "Dia 1, Dia 2",
-                      border: OutlineInputBorder(
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(10.0))),
-                      icon: Icon(Icons.date_range),
-                    ),
-                    validator: ((value) {
-                      if (value!.isEmpty) {
-                        return 'Ingresar días de clase';
-                      }
-                      return null;
-                    }),
-                  ),
+                      controller: daysController,
+                      decoration: decorationForTextFormFields.copyWith(
+                        labelText: "Días de clase",
+                        hintText: "Dia 1, Dia 2",
+                        icon: Icon(Icons.date_range,
+                            color: ColorsF().escoger("gris")),
+                      ),
+                      validator: ((value) {
+                        if (value!.isEmpty) {
+                          return '* Ingresar días de clase';
+                        }
+                        return null;
+                      })),
                   const SizedBox(
                     height: 35,
                   ),
                   TextFormField(
-                    decoration: const InputDecoration(
-                      labelText: "Link de imagen",
-                      hintText: "http://dominio/nombre.png",
-                      border: OutlineInputBorder(
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(10.0))),
-                      icon: Icon(Icons.image),
-                    ),
-                    validator: ((value) {
-                      if (value!.isEmpty) {
-                        return 'Ingresar link de imágen png';
-                      }
-                      return null;
-                    }),
-                  ),
+                      controller: classImageController,
+                      decoration: decorationForTextFormFields.copyWith(
+                        labelText: "Link de imagen",
+                        hintText: "http://dominio/nombre.png",
+                        icon:
+                            Icon(Icons.image, color: ColorsF().escoger("gris")),
+                      ),
+                      validator: ((value) {
+                        if (value!.isEmpty) {
+                          return '* Ingresar link de imágen png';
+                        }
+                        return null;
+                      })),
                   const SizedBox(
                     height: 35,
                   ),
@@ -161,15 +142,47 @@ class _CreateClState extends State<CreateCl> {
                         ),
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            // If the form is valid, display a Snackbar.
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content: const Text(
+                              duration: Duration(milliseconds: 500),
+                              content: Text(
                                 'Creando materia ...',
                                 style: TextStyle(
-                                    fontFamily: 'Lato', fontSize: 20.0),
+                                    fontFamily: 'Lato',
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: ColorsF().escoger("blanco")),
                               ),
-                              backgroundColor: ColorsF().escoger("primario"),
+                              backgroundColor: ColorsF().escoger("negro"),
                             ));
+                            classToUpload.classImage =
+                                classImageController.text;
+                            classToUpload.name = nameController.text;
+                            classToUpload.schedule = scheduleController.text;
+                            classToUpload.classroom = classroomController.text;
+                            classToUpload.days = daysController.text;
+                            print(classToUpload.printObject());
+
+                            uploadClass(
+                              classToUpload.classImage,
+                              classToUpload.name,
+                              classToUpload.schedule,
+                              classToUpload.classroom,
+                              classToUpload.days
+                            ).then((value) => 
+                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                content: Text(
+                                  'Materia creada correctamente',
+                                  style: TextStyle(
+                                      fontFamily: 'Lato',
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: ColorsF().escoger("blanco")),
+                                ),
+                                backgroundColor:
+                                    ColorsF().escoger("negro"),
+                              ))
+                            );
+                            classImageController.clear();
                           }
                         },
                       )),

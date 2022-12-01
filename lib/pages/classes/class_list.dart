@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'class.dart';
 import 'class_item.dart';
 
-class HomeworkList extends StatelessWidget {
-  final List<Homework> items;
-  // constructor que recibe la lista de objetos tipo Homework
-  const HomeworkList({required Key key, required this.items});
+class ClassList extends StatelessWidget {
+  final List<Class> items;
+  // constructor que recibe la lista de objetos tipo Class
+  const ClassList({required Key key, required this.items});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class HomeworkList extends StatelessWidget {
           itemBuilder: (context, index) {
             // widget con la forma visible de cada uno de los
             // elementos a mostrar dentro de la lista
-            return HomeworkItem(item: items[index]);
+            return ClassItem(item: items[index]);
           },
         ));
   }
