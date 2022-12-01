@@ -29,8 +29,6 @@ List<Class> decodeClass(String responseBody) {
 /// puede ser una funcionalidad extra en el futuro
 Future<Class> uploadClass(String classImage, String name, String schedule,
     String classroom, String days) async {
-  print(
-      "entre en el enviar y tengo $classImage $name $schedule $classroom $days");
   final http.Response response = await http.post(
     Uri.parse('https://fgl-fruits.glitch.me/insertclass'),
     headers: <String, String>{
@@ -45,11 +43,8 @@ Future<Class> uploadClass(String classImage, String name, String schedule,
     }),
   );
   if (response.statusCode == 200) {
-    print("volvi bien");
-    print(response.body);
     return Class.fromJson(json.decode(response.body));
   } else {
-    print("volvi con un error");
     throw Exception('There was an error');
   }
 }

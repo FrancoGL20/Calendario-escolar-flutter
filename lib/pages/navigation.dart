@@ -13,7 +13,7 @@ class Navigation extends StatefulWidget {
 
 class _Navigation extends State<Navigation> {
   // indice para controlar en que ventana se está mostrando
-  int _selectedIndex = 0;
+  int _selectedIndex = 2;
 
   // lista de clases con las vistas necesarias
   final List<Widget> widgetsChildren = [
@@ -69,6 +69,7 @@ class _Navigation extends State<Navigation> {
         currentIndex: _selectedIndex,
         selectedItemColor: ColorsF().escoger("primario"),
         onTap: _onItemTapped,
+        unselectedItemColor: ColorsF().escoger("gris_claro"),
       ),
     );
   }

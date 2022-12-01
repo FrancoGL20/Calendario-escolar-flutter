@@ -1,3 +1,4 @@
+import 'package:calendario_escolar/common_widgets/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import './pages/landing_page.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
     final ThemeData base = ThemeData.dark();
     return base.copyWith(
         brightness: Brightness.dark,
-        primaryColor: const Color.fromARGB(255, 34, 255, 34),
+        primaryColor: ColorsF().escoger("gris_claro"),
         textTheme: const TextTheme(
           headline1: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
           bodyText1: TextStyle(fontSize: 18.0),

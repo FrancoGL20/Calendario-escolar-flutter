@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../common_widgets/colors.dart';
+import 'colors.dart';
 import '../utils/sign_out.dart';
 
 class AppBarF {
@@ -8,7 +8,7 @@ class AppBarF {
       // titulo en la barra superior
       title: Text(
         "$text",
-        style: TextStyle(color: ColorsF().escoger("blanco")),
+        style: TextStyle(color: ColorsF().escoger("gris_claro")),
       ),
       // fondo de la barra
       backgroundColor: ColorsF().escoger("negro"),
@@ -20,7 +20,7 @@ class AppBarF {
             child: Text(
               "Cerrar sesión  ",
               style: TextStyle(
-                color: ColorsF().escoger("blanco"),
+                color: ColorsF().escoger("gris_claro"),
                 fontSize: 18,
               ),
             ))

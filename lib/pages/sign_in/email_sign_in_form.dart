@@ -127,6 +127,10 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       children: [
         ElevatedButton(
           onPressed: model.canSubmit ? _submit : null,
+          style: ElevatedButton.styleFrom(
+              primary: Colors.deepOrange[200],
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)))),
           child: Text(
             model.primaryButtonText,
             style: Theme.of(context)
@@ -134,10 +138,6 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
                 .bodyText1!
                 .copyWith(color: Colors.black),
           ),
-          style: ElevatedButton.styleFrom(
-              primary: Colors.deepOrange[200],
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)))),
         ),
         TextButton(
             onPressed: !model.isLoading ? _toogleFormType : null,

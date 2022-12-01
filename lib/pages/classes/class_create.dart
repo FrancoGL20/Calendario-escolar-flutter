@@ -1,7 +1,7 @@
 import 'package:calendario_escolar/common_widgets/colors.dart';
 import 'package:calendario_escolar/services/operations.dart';
 import 'package:flutter/material.dart';
-import '../app_bar.dart';
+import '../../common_widgets/app_bar.dart';
 import 'class.dart';
 import '../../common_widgets/decoration_of_text_form_field.dart';
 
@@ -37,6 +37,8 @@ class _CreateClState extends State<CreateCl> {
                   const SizedBox(
                     height: 12,
                   ),
+
+                  // titulo
                   const Text(
                     "Creación de materia",
                     style: TextStyle(fontSize: 40.0, fontFamily: 'Lato'),
@@ -44,13 +46,15 @@ class _CreateClState extends State<CreateCl> {
                   const SizedBox(
                     height: 31,
                   ),
+
+                  // nombre de clase
                   TextFormField(
                       controller: nameController,
                       decoration: decorationForTextFormFields.copyWith(
                         labelText: "Nombre",
                         hintText: "Clase X",
                         icon: Icon(Icons.drive_file_rename_outline,
-                            color: ColorsF().escoger("gris")),
+                            color: ColorsF().escoger("gris_claro")),
                       ),
                       validator: ((value) {
                         if (value!.isEmpty) {
@@ -61,13 +65,15 @@ class _CreateClState extends State<CreateCl> {
                   const SizedBox(
                     height: 35,
                   ),
+
+                  // horario de clase
                   TextFormField(
                       controller: scheduleController,
                       decoration: decorationForTextFormFields.copyWith(
                         labelText: "Horario",
                         hintText: "Inicio - Fin",
                         icon: Icon(Icons.schedule,
-                            color: ColorsF().escoger("gris")),
+                            color: ColorsF().escoger("gris_claro")),
                       ),
                       validator: ((value) {
                         if (value!.isEmpty) {
@@ -78,13 +84,15 @@ class _CreateClState extends State<CreateCl> {
                   const SizedBox(
                     height: 35,
                   ),
+
+                  // salon de clase
                   TextFormField(
                       controller: classroomController,
                       decoration: decorationForTextFormFields.copyWith(
                         labelText: "Salón",
                         hintText: "Edificio-Salon",
                         icon: Icon(Icons.location_on,
-                            color: ColorsF().escoger("gris")),
+                            color: ColorsF().escoger("gris_claro")),
                       ),
                       validator: ((value) {
                         if (value!.isEmpty) {
@@ -95,13 +103,15 @@ class _CreateClState extends State<CreateCl> {
                   const SizedBox(
                     height: 35,
                   ),
+
+                  // dias de clase
                   TextFormField(
                       controller: daysController,
                       decoration: decorationForTextFormFields.copyWith(
                         labelText: "Días de clase",
                         hintText: "Dia 1, Dia 2",
                         icon: Icon(Icons.date_range,
-                            color: ColorsF().escoger("gris")),
+                            color: ColorsF().escoger("gris_claro")),
                       ),
                       validator: ((value) {
                         if (value!.isEmpty) {
@@ -112,13 +122,15 @@ class _CreateClState extends State<CreateCl> {
                   const SizedBox(
                     height: 35,
                   ),
+
+                  // imagen de clase
                   TextFormField(
                       controller: classImageController,
                       decoration: decorationForTextFormFields.copyWith(
                         labelText: "Link de imagen",
                         hintText: "http://dominio/nombre.png",
                         icon:
-                            Icon(Icons.image, color: ColorsF().escoger("gris")),
+                            Icon(Icons.image, color: ColorsF().escoger("gris_claro")),
                       ),
                       validator: ((value) {
                         if (value!.isEmpty) {
@@ -129,16 +141,16 @@ class _CreateClState extends State<CreateCl> {
                   const SizedBox(
                     height: 35,
                   ),
+
+                  // boton de enviar
                   SizedBox(
-                      width: 200.0,
-                      height: 40.0,
+                      width: 220.0,
+                      height: 45.0,
                       child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: ColorsF().escoger("negro"),
-                            foregroundColor: ColorsF().escoger("blanco")),
+                        style: ColorsF().colorElevatedButton("gris_oscuro", "negro"),
                         child: const Text(
                           'Submit',
-                          style: TextStyle(fontSize: 17.0, fontFamily: 'Lato'),
+                          style: TextStyle(fontSize: 21.0, fontFamily: 'Lato',fontWeight: FontWeight.bold),
                         ),
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {

@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'classes/class.dart';
 import 'classes/class_list.dart';
 import '../services/operations.dart';
-import '../pages/app_bar.dart';
+import '../common_widgets/app_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
