@@ -38,7 +38,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       await model.submit();
     } on FirebaseException catch (e) {
       CustomAlertDialog(
-        title: "Inicioo registro incorrecto",
+        title: "Inicio o registro incorrecto",
         content: e.message!,
         defaultActionText: "OK",
       ).show(context);

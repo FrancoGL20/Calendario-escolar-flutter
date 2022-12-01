@@ -26,10 +26,11 @@ class MyApp extends StatelessWidget {
     final ThemeData base = ThemeData.dark();
     return base.copyWith(
         brightness: Brightness.dark,
-        primaryColor: Color.fromARGB(255, 34, 255, 34),
+        primaryColor: const Color.fromARGB(255, 34, 255, 34),
         textTheme: const TextTheme(
           headline1: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
           bodyText1: TextStyle(fontSize: 18.0),
+
         ),
     );
   }

@@ -3,11 +3,11 @@ import '../common_widgets/colors.dart';
 import '../utils/sign_out.dart';
 
 class AppBarF {
-  static AppBar crearAppBar(BuildContext context) {
+  static AppBar crearAppBar(BuildContext context,String text) {
     return AppBar(
       // titulo en la barra superior
       title: Text(
-        "Lista de materias",
+        "$text",
         style: TextStyle(color: ColorsF().escoger("blanco")),
       ),
       // fondo de la barra

@@ -1,3 +1,4 @@
+import 'package:calendario_escolar/common_widgets/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:calendario_escolar/services/auth.dart';
 import 'package:provider/provider.dart';
@@ -19,7 +20,7 @@ class HomePage extends StatelessWidget {
           if (snapshot.hasError) print(snapshot.error);
           return snapshot.hasData
               ? HomeworkList(items: snapshot.data!, key: k)
-              : const Center(child: CircularProgressIndicator());
+              : Center(child: CircularProgressIndicator(color: ColorsF().escoger("primario"),));
         },
       ),
     );
@@ -31,7 +32,7 @@ class HomePage extends StatelessWidget {
     final user = Provider.of<UserModel>(context, listen: false);
     return Scaffold(
       // barra superior de la aplicación
-      appBar: AppBarF.crearAppBar(context),
+      appBar: AppBarF.crearAppBar(context,"Lista de materias"),
       body: _buildListOfHomeworks(user, context),
     );
   }

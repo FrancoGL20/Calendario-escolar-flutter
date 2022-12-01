@@ -1,26 +1,32 @@
 import 'package:flutter/material.dart';
 
 class ColorsF {
-  Color escoger(String color){
+  Color escoger(String color) {
     switch (color) {
       case "negro":
         {
-          return Color.fromARGB(255, 19, 19, 19);
+          return const Color.fromARGB(255, 19, 19, 19);
         }
 
-      case "naranja":
+      case "primario":
         {
-          return Color.fromARGB(255, 255, 128, 3);
+          return Colors.blueAccent;
+          // return  Color.fromARGB(255, 255, 128, 3);
         }
 
       case "blanco":
         {
-          return Color.fromARGB(255, 232, 232, 232);
+          return const Color.fromARGB(255, 232, 232, 232);
+        }
+
+      case "gris":
+        {
+          return const Color.fromARGB(255, 164, 164, 164);
         }
 
       default:
         {
-          return Color.fromARGB(255, 74, 147, 84);
+          return const Color.fromARGB(255, 74, 147, 84);
         }
     }
   }
