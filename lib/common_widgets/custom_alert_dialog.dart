@@ -1,3 +1,4 @@
+import 'package:calendario_escolar/common_widgets/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomAlertDialog extends StatelessWidget {
@@ -35,7 +36,7 @@ class CustomAlertDialog extends StatelessWidget {
       actions.add(
         TextButton(
           onPressed: () => Navigator.of(context).pop(false),
-          child: Text(cancelActionText!),
+          child: Text(cancelActionText!,style: TextStyle(color: ColorsF().escoger("primario"))),
         ),
       );
     }
@@ -43,7 +44,7 @@ class CustomAlertDialog extends StatelessWidget {
     actions.add(
       TextButton(
         onPressed: () => Navigator.of(context).pop(true),
-        child: Text(defaultActionText),
+        child: Text(defaultActionText,style: TextStyle(color: ColorsF().escoger("primario")),),
       ),
     );
 

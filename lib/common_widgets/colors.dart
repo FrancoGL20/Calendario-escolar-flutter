@@ -5,7 +5,7 @@ class ColorsF {
     switch (color) {
       case "negro":
         {
-          return const Color.fromARGB(255, 19, 19, 19);
+          return Color.fromARGB(255, 0, 0, 0);
         }
 
       case "primario":

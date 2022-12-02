@@ -1,9 +1,12 @@
+import 'package:calendario_escolar/common_widgets/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:calendario_escolar/common_widgets/custom_alert_dialog.dart';
 import 'package:calendario_escolar/pages/sign_in/email_sign_in_model.dart';
 import 'package:calendario_escolar/services/auth.dart';
 import 'package:provider/provider.dart';
+
+import '../../common_widgets/decoration_of_text_form_field.dart';
 
 class EmailSignInForm extends StatefulWidget {
   EmailSignInForm({Key? key, required this.model}) : super(key: key);
@@ -26,7 +29,9 @@ class EmailSignInForm extends StatefulWidget {
 }
 
 class _EmailSignInFormState extends State<EmailSignInForm> {
+  // ignore: unnecessary_nullable_for_final_variable_declarations
   final TextEditingController? _emailController = TextEditingController();
+  // ignore: unnecessary_nullable_for_final_variable_declarations
   final TextEditingController? _passwordController = TextEditingController();
 
   final FocusNode _emailFocusNode = FocusNode();
@@ -62,15 +67,15 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
     return [
       _buildHeader(),
       const SizedBox(
-        height: 20.0,
+        height: 35.0,
       ),
       _buildEmailTextField(),
       const SizedBox(
-        height: 15.0,
+        height: 25.0,
       ),
       _buildPasswordTextField(),
       const SizedBox(
-        height: 15.0,
+        height: 45.0,
       ),
       _buildFormActions(),
     ];
@@ -79,7 +84,11 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
   Widget _buildHeader() {
     return Text(
       model.headerText,
-      style: Theme.of(context).textTheme.headline1,
+      style: TextStyle(
+        fontSize: 65.0,
+        color: ColorsF().escoger("gris_claro"),
+        fontFamily: 'Lato'
+      ),
     );
   }
 
@@ -89,13 +98,12 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       keyboardType: TextInputType.emailAddress,
       textInputAction: TextInputAction.next,
       controller: _emailController,
-      decoration: InputDecoration(
-          labelText: "Correo",
-          hintText: "admin@helizondo.com",
-          border: OutlineInputBorder(),
-          icon: Icon(Icons.mail),
-          errorText: model.emailErrorText,
-          enabled: model.isLoading == false),
+      decoration: decorationForTextFormFields.copyWith(
+        labelText: "Correo",
+        hintText: "correo@dominio.com",
+        icon: Icon(Icons.mail,
+            color: ColorsF().escoger("gris_claro")),
+      ),
       focusNode: _emailFocusNode,
       onEditingComplete: () => _emailEditingComplete(),
       onChanged: model.updateEmail,
@@ -106,12 +114,12 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
     return TextField(
       controller: _passwordController,
       obscureText: true,
-      decoration: InputDecoration(
-          labelText: "Contraseña",
-          border: OutlineInputBorder(),
-          icon: Icon(Icons.lock),
-          errorText: model.passwordErrorText,
-          enabled: model.isLoading == false),
+      decoration: decorationForTextFormFields.copyWith(
+        labelText: "Contraseña",
+        hintText: "******",
+        icon: Icon(Icons.lock,
+            color: ColorsF().escoger("gris_claro")),
+      ),
       textInputAction: TextInputAction.done,
       focusNode: _passwordFocusNode,
       onEditingComplete: _submit,
@@ -125,24 +133,25 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
     }
     return Column(
       children: [
-        ElevatedButton(
-          onPressed: model.canSubmit ? _submit : null,
-          style: ElevatedButton.styleFrom(
-              primary: Colors.deepOrange[200],
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)))),
-          child: Text(
-            model.primaryButtonText,
-            style: Theme.of(context)
-                .textTheme
-                .bodyText1!
-                .copyWith(color: Colors.black),
-          ),
+        SizedBox(
+          width: 220.0,
+          height: 45.0,
+          child: ElevatedButton(
+            onPressed: model.canSubmit ? _submit:null,
+            style: ColorsF().colorElevatedButton("gris_oscuro", "negro"),
+            child: Text(
+              model.primaryButtonText,
+              style: TextStyle(fontSize: 21.0, fontFamily: 'Lato',fontWeight: FontWeight.bold,color: ColorsF().escoger("negro")),
+            ),
+          )
         ),
         TextButton(
             onPressed: !model.isLoading ? _toogleFormType : null,
             child: Text(
               model.secondaryButtonText,
+              style: TextStyle(
+                color: ColorsF().escoger("primario")
+              ),
             ))
       ],
     );

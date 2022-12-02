@@ -31,13 +31,13 @@ class ClassItem extends StatelessWidget {
                             Text(item.name,
                                 style: const TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 18.0)),
+                                    fontSize: 18.0,fontFamily: 'Lato')),
                             Text("horario: ${item.schedule}",
-                                style: const TextStyle(fontSize: 13.0)),
+                                style: const TextStyle(fontSize: 13.0,fontFamily: 'Lato')),
                             Text("salón: ${item.classroom}",
-                                style: const TextStyle(fontSize: 13.0)),
+                                style: const TextStyle(fontSize: 13.0,fontFamily: 'Lato')),
                             Text("días: ${item.days}",
-                                style: const TextStyle(fontSize: 13.0)),
+                                style: const TextStyle(fontSize: 13.0,fontFamily: 'Lato')),
                           ],
                         )))
               ]),

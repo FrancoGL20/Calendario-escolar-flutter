@@ -13,7 +13,7 @@ class Navigation extends StatefulWidget {
 
 class _Navigation extends State<Navigation> {
   // indice para controlar en que ventana se está mostrando
-  int _selectedIndex = 2;
+  int _selectedIndex = 0;
 
   // lista de clases con las vistas necesarias
   final List<Widget> widgetsChildren = [

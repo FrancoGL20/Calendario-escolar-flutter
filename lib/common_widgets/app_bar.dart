@@ -8,7 +8,7 @@ class AppBarF {
       // titulo en la barra superior
       title: Text(
         "$text",
-        style: TextStyle(color: ColorsF().escoger("gris_claro")),
+        style: TextStyle(color: ColorsF().escoger("gris_claro"),fontFamily: 'Lato',fontWeight: FontWeight.bold),
       ),
       // fondo de la barra
       backgroundColor: ColorsF().escoger("negro"),
@@ -22,6 +22,7 @@ class AppBarF {
               style: TextStyle(
                 color: ColorsF().escoger("gris_claro"),
                 fontSize: 18,
+                fontFamily: 'Lato',fontWeight: FontWeight.bold
               ),
             ))
       ],

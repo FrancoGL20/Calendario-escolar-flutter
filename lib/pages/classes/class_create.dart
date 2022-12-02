@@ -41,7 +41,7 @@ class _CreateClState extends State<CreateCl> {
                   // titulo
                   const Text(
                     "Creación de materia",
-                    style: TextStyle(fontSize: 40.0, fontFamily: 'Lato'),
+                    style: TextStyle(fontSize: 40.0, fontFamily: 'Lato',fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
                     height: 31,
