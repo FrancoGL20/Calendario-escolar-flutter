@@ -14,7 +14,7 @@ class Contact extends StatefulWidget {
 class _ContactState extends State<Contact> {
   bool _hasCallSupport = false;
   Future<void>? _launched;
-  final _phone = '7291493096';
+  final _phone = '0123456789';
 
   @override
   void initState() {
@@ -62,7 +62,7 @@ class _ContactState extends State<Contact> {
     final Uri toLaunch = Uri(
         scheme: 'https',
         host: 'wa.me',
-        path: '527291493096?text=mesnaje%20ejemplo');
+        path: '52$_phone?text=mensaje%20ejemplo');
     // https://www.youtube.com/@francisco_gl4203
     final Uri linkToYoutube = Uri(
         scheme: 'https', host: 'www.youtube.com', path: '@francisco_gl4203');
