@@ -1,6 +1,6 @@
 # Calendario_escolar
 
-Este proyecto consta de 
+Este proyecto consta de una aplicación funcional para Android y iOS para estudiantes la cual puede funcionar como un horario que lista las materias que actualmente se están llevando. Igualmente se permite crear una materia de forma directa desde la aplicación y finalmente existe igual una sección de contacto en la que se puede colocar un número para realizar una llamada, enviar un mensaje por Whatsapp o visitar en la aplicación de Youtube el canal del creador.
 
 ## Lenguajes y plataformas utilizados
 
@@ -11,7 +11,7 @@ Este proyecto consta de
 ## Instalación
 
 1. Descargar repositorio de GitHub en un directorio local deseado
-   
+
    NOTA: si el proyecto desea personalizarse es necesario crear uno nuevo y copiar los archivos para poder hacer una conexión a un nuevo proyecto de [Firebase][firebase] con una authenticación personal, ya que el actual proyecto es propiedad de [Francisco Gutiérrez López](https://github.com/FrancoGL20)
 2. Ejecutar el comando en flutter para instalar los paquetes necesarios
     ```sh
